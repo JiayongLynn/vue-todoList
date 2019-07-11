@@ -1,9 +1,12 @@
 <template>
   <div id="app">
     <h1>{{title}}</h1>
-    <p>Click the item,it mean that is completed</p>
-    <baseinput label='TodoList:' placeholder="Please input your todo-item" v-model='item' v-on:keyup.enter='addItem'></baseinput>
-    <itemlist :ItemList='List' v-on:removeItem="removeItem"></itemlist>
+    <!-- <p class="center">Click the item,it mean that is completed</p> -->
+    <div class="container">
+      <baseinput label='TodoItem:' placeholder="Please input your todo-item" v-model='item' v-on:keyup.enter='addItem'></baseinput>
+      <itemlist :ItemList='List' v-on:removeItem="removeItem"></itemlist>
+    </div>
+
   </div>
 </template>
 
@@ -47,13 +50,30 @@ export default {
 }
 </script>
 
-<style>
-/* #app {
+<style scoped>
+#app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
-} */
+  border: 1px solid #2c3e50;
+  width:30%;
+  min-height:300px;
+  margin: 0 auto;
+}
+h1{
+  text-align: center;
+  color:#23609c;
+}
+.center{
+  text-align: center;
+}
+.container{
+  /* width: ; */
+  background-color: rgba(255,255,255,0.1);
+  margin:0 auto;
+  /* padding: 10px 10px; */
+}
 </style>

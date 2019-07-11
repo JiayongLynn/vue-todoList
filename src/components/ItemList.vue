@@ -1,7 +1,7 @@
 <template>
-      <transition-group name="list" tag="ul" :duration="{ enter: 500, leave: 5000 }">
+      <transition-group name="list" tag="ul" :duration="{ enter: 500, leave: 6000 }">
                 <li v-for='(item,index) in itemList' v-bind:key="item.ID"  style="height:30px;margin-bottom:10px;" :class="[item.flag ? itemTag : '',listitem ]">
-                    <span v-on:click='Tag(item)'>{{item.item}}</span>
+                    <span  v-on:click='Tag(item)'>{{item.item}}</span>
                     <button class="removeBtn" @click="$emit('removeItem',index)">Remove</button>
                 </li>
       </transition-group>
@@ -29,13 +29,18 @@ export default {
     ul{
         list-style: none;
         padding-inline-start:20px;
-        width:300px;
+        position: relative;
+        /* width:300px; */
+    }
+    ul>li{
+        text-align: left;
     }
     .itemtag{
         color:red;
     }
     .removeBtn{
-        float: right;
+        position: absolute;
+        right:0;
         border: none;
         padding: 10px 10px;
         border-radius:5px;
@@ -47,14 +52,15 @@ export default {
     }
 
     .list-leave-to{
-        opacity:0;
-        transform: translateX(-20px);      
+        opacity:0;  
+        transform:translateX(600px);
     }
     .list-enter-to{
         opacity:1;
        transform: translateX(40px);
     }
     .list-item{
-         transition: opacity 4s;
+        /* position:relative; */
+         transition: opacity 2s;
     }
 </style>
